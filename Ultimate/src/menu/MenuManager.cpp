@@ -1,0 +1,87 @@
+#include "MenuManager.h"
+#include "iw4/menu.h"
+#include "iw4/render.h"
+#include "settings/Settings.h"
+#include "ultimate/Ultimate.h"
+#include <imgui/dx9/imgui_impl_dx9.h>
+#include <imgui/imgui.h>
+
+MenuManager::MenuManager()
+    : m_open{ false }
+{
+    D3DDEVICE_CREATION_PARAMETERS parameters{};
+    g_device->GetCreationParameters(&parameters);
+    m_window = parameters.hFocusWindow;
+}
+
+void MenuManager::initializeImGui() const
+{
+    ImGui_ImplDX9_Init(m_window, g_device);
+}
+
+void MenuManager::shutdownImGui()
+{
+    ImGui_ImplDX9_Shutdown();
+}
+
+void MenuManager::onEndScene()
+{
+    ImGui_ImplDX9_NewFrame();
+
+    if (ImGui::IsKeyPressed(VK_F2)) {
+        Menu::OpenMenu(0, "popup_gamesetup");
+    }
+
+    if (ImGui::IsKeyPressed(VK_F8)) {
+        m_open = !m_open;
+
+        ImGui::GetIO().MouseDrawCursor = m_open;
+    }
+
+    /*if (ImGui::IsKeyPressed(VK_F5)) {
+        const auto event = std::make_shared<EntityEvent>(*g_hostId, [](int32_t entNum) {
+            auto entity = g_entities[entNum];
+            auto trace = entity.client->playerState.getViewTrace();
+
+            if (trace.m_trace.hitId < g_entities.size()) {
+                auto hitEntity = g_entities[trace.m_trace.hitId];
+
+                if (hitEntity.client) {
+                    Game::Suicide(trace.m_trace.hitId);
+                }
+            }
+
+            float location[3];
+            trace.getHitLocation(location);
+            
+            Ultimate::m_ultimate->m_crateTracker.spawnCarePackage(location, entity.shared.currentAngles, 1000);
+        });
+
+        Ultimate::m_ultimate->m_eventQueue.pushEvent(event);
+    }*/
+
+    if (m_open) {
+        Dvar::Draw();
+        //Ui::g_uiContext->drawUiContext();
+        //Entity::DrawEntityList();
+
+        g_settings.drawSettings();
+        Ultimate::m_ultimate->m_loadoutControl.drawLoadoutControls();
+        Ultimate::m_ultimate->m_activeGame.drawActiveGame();
+        //Ultimate::m_ultimate->m_virtualMachine.draw();
+    }
+
+    ImGui::Render();
+}
+
+bool MenuManager::onMessage(MSG* message) const
+{
+    ImGui_ImplWin32_WndProcHandler(message->hwnd, message->message, message->wParam, message->lParam);
+
+    return !m_open;
+}
+
+bool MenuManager::isMenuOpen() const
+{
+    return m_open;
+}

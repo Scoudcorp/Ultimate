@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{DA13EA2D-4ECF-4A6D-820E-C3C4E560BC13}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Ultimate</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/utf-8 /IINCREMENTAL %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>true</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/utf-8 /IINCREMENTAL %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild>true</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <ExceptionHandling>SyncCThrow</ExceptionHandling>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <ExceptionHandling>SyncCThrow</ExceptionHandling>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AssemblyDebug>false</AssemblyDebug>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\iw4\client.cpp" />
+    <ClCompile Include="lib\iw4\dvar.cpp" />
+    <ClCompile Include="lib\iw4\entity.cpp" />
+    <ClCompile Include="lib\iw4\game.cpp" />
+    <ClCompile Include="lib\iw4\hudelem.cpp" />
+    <ClCompile Include="lib\iw4\iw_string.cpp" />
+    <ClCompile Include="lib\iw4\menu.cpp" />
+    <ClCompile Include="lib\iw4\playerstate.cpp" />
+    <ClCompile Include="lib\iw4\script.cpp" />
+    <ClCompile Include="lib\iw4\server.cpp" />
+    <ClCompile Include="lib\iw4\sever.cpp" />
+    <ClCompile Include="lib\iw4\structure.cpp" />
+    <ClCompile Include="lib\iw4\ui.cpp" />
+    <ClCompile Include="src\compiler\compiler.cpp" />
+    <ClCompile Include="src\disasembler\Disassembler.cpp" />
+    <ClCompile Include="src\disasembler\Opcode.cpp" />
+    <ClCompile Include="src\hook\asset\FindXAssetHeaderDetour.cpp" />
+    <ClCompile Include="src\hook\game\ClientDisconnectDetour.cpp" />
+    <ClCompile Include="src\hook\game\FindConfigstringIndexDetour.cpp" />
+    <ClCompile Include="src\hook\game\MenuResponseDetour.cpp" />
+    <ClCompile Include="src\hook\network\NetchanProcessDetour.cpp" />
+    <ClCompile Include="src\hook\script\RunFrameDetour.cpp" />
+    <ClCompile Include="src\hook\script\NotifyDetour.cpp" />
+    <ClCompile Include="src\hook\server\GameSendServerCommandDetour.cpp" />
+    <ClCompile Include="src\mod\events\EntityEvent.cpp" />
+    <ClCompile Include="src\mod\events\Event.cpp" />
+    <ClCompile Include="src\mod\events\EventQueue.cpp" />
+    <ClCompile Include="src\mod\events\GenericEvent.cpp" />
+    <ClCompile Include="src\mod\game\ActivePlayer.cpp" />
+    <ClCompile Include="src\mod\game\ActiveGame.cpp" />
+    <ClCompile Include="src\hook\script\Scripts.cpp" />
+    <ClCompile Include="src\hook\script\ScriptProxy.cpp" />
+    <ClCompile Include="src\hook\script\ScriptManager.cpp" />
+    <ClCompile Include="src\hook\script\RegisterMethodDetour.cpp" />
+    <ClCompile Include="src\hook\party\CanHostServerDetour.cpp" />
+    <ClCompile Include="src\mod\game\CrateTracker.cpp" />
+    <ClCompile Include="src\mod\perk\PerkRule.cpp" />
+    <ClCompile Include="src\mod\thread\RunningThreads.cpp" />
+    <ClCompile Include="src\mod\thread\ThreadAction.cpp" />
+    <ClCompile Include="src\settings\Settings.cpp" />
+    <ClCompile Include="src\mod\weapon\AttachmentRule.cpp" />
+    <ClCompile Include="src\mod\LoadoutControl.cpp" />
+    <ClCompile Include="src\hook\game\PlayerDieDetour.cpp" />
+    <ClCompile Include="src\hook\game\SayDetour.cpp" />
+    <ClCompile Include="src\mod\weapon\WeaponClassRule.cpp" />
+    <ClCompile Include="src\security\BanEntry.cpp" />
+    <ClCompile Include="src\security\AccessControl.cpp" />
+    <ClCompile Include="lib\iw4\network.cpp" />
+    <ClCompile Include="lib\iw4\party.cpp" />
+    <ClCompile Include="src\hook\d3d\ResetDetour.cpp" />
+    <ClCompile Include="src\hook\party\ClientHandshakeDetour.cpp" />
+    <ClCompile Include="lib\imgui\dx9\imgui_impl_dx9.cpp" />
+    <ClCompile Include="lib\imgui\imgui.cpp" />
+    <ClCompile Include="lib\imgui\imgui_draw.cpp" />
+    <ClCompile Include="src\hook\input\MouseEventDetour.cpp" />
+    <ClCompile Include="src\menu\MenuManager.cpp" />
+    <ClCompile Include="src\hook\user32\DispatchMessageDetour.cpp" />
+    <ClCompile Include="src\patch\Patch.cpp" />
+    <ClCompile Include="src\patch\PatchManager.cpp" />
+    <ClCompile Include="src\ultimate\UltimateConsole.cpp" />
+    <ClCompile Include="src\hook\d3d\EndSceneDetour.cpp" />
+    <ClCompile Include="src\hook\DetourManager.cpp" />
+    <ClCompile Include="src\hook\Detour.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\ultimate\Ultimate.cpp" />
+    <ClCompile Include="src\util\Log.cpp" />
+    <ClCompile Include="src\util\Message.cpp" />
+    <ClCompile Include="src\util\VTable.cpp" />
+    <ClCompile Include="lib\iw4\weapon.cpp" />
+    <ClCompile Include="src\util\StringUtil.cpp" />
+    <ClCompile Include="src\mod\weapon\WeaponRule.cpp" />
+    <ClCompile Include="src\vm\thread\VmThread.cpp" />
+    <ClCompile Include="src\vm\value\VmStack.cpp" />
+    <ClCompile Include="src\vm\VirtualMachine.cpp" />
+    <ClCompile Include="src\vm\context\VmContext.cpp" />
+    <ClCompile Include="src\vm\value\VMValue.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\iw4\anim.h" />
+    <ClInclude Include="lib\iw4\arg.h" />
+    <ClInclude Include="lib\iw4\asset.h" />
+    <ClInclude Include="lib\iw4\client.h" />
+    <ClInclude Include="lib\iw4\clip.h" />
+    <ClInclude Include="lib\iw4\db.h" />
+    <ClInclude Include="lib\iw4\font.h" />
+    <ClInclude Include="lib\iw4\hudelem.h" />
+    <ClInclude Include="lib\iw4\image.h" />
+    <ClInclude Include="lib\iw4\iw4_memory.h" />
+    <ClInclude Include="lib\iw4\leaderboard.h" />
+    <ClInclude Include="lib\iw4\level.h" />
+    <ClInclude Include="lib\iw4\light.h" />
+    <ClInclude Include="lib\iw4\loc.h" />
+    <ClInclude Include="lib\iw4\material.h" />
+    <ClInclude Include="lib\iw4\math.h" />
+    <ClInclude Include="lib\iw4\message.h" />
+    <ClInclude Include="lib\iw4\model.h" />
+    <ClInclude Include="lib\iw4\objective.h" />
+    <ClInclude Include="lib\iw4\phys.h" />
+    <ClInclude Include="lib\iw4\playercmd.h" />
+    <ClInclude Include="lib\iw4\render.h" />
+    <ClInclude Include="lib\iw4\sound.h" />
+    <ClInclude Include="lib\iw4\structure.h" />
+    <ClInclude Include="lib\iw4\surface.h" />
+    <ClInclude Include="lib\iw4\system.h" />
+    <ClInclude Include="lib\iw4\ui.h" />
+    <ClInclude Include="lib\iw4\util.h" />
+    <ClInclude Include="lib\iw4\vehicle.h" />
+    <ClInclude Include="lib\iw4\water.h" />
+    <ClInclude Include="lib\iw4\world.h" />
+    <ClInclude Include="src\compiler\compiler.h" />
+    <ClInclude Include="src\disasembler\Disassembler.h" />
+    <ClInclude Include="src\disasembler\Opcode.h" />
+    <ClInclude Include="src\hook\asset\FindXAssetHeaderDetour.h" />
+    <ClInclude Include="src\hook\game\ClientDisconnectDetour.h" />
+    <ClInclude Include="src\hook\game\FindConfigstringIndexDetour.h" />
+    <ClInclude Include="src\hook\game\MenuResponseDetour.h" />
+    <ClInclude Include="src\hook\network\NetchanProcessDetour.h" />
+    <ClInclude Include="src\hook\script\RunFrameDetour.h" />
+    <ClInclude Include="src\hook\script\NotifyDetour.h" />
+    <ClInclude Include="src\hook\server\GameSendServerCommandDetour.h" />
+    <ClInclude Include="src\mod\events\EntityEvent.h" />
+    <ClInclude Include="src\mod\events\Event.h" />
+    <ClInclude Include="src\mod\events\EventQueue.h" />
+    <ClInclude Include="src\mod\events\GenericEvent.h" />
+    <ClInclude Include="src\mod\game\ActivePlayer.h" />
+    <ClInclude Include="src\mod\game\ActiveGame.h" />
+    <ClInclude Include="src\hook\script\Scripts.h" />
+    <ClInclude Include="src\hook\script\ScriptProxy.h" />
+    <ClInclude Include="src\hook\script\ScriptManager.h" />
+    <ClInclude Include="src\hook\script\RegisterMethodDetour.h" />
+    <ClInclude Include="src\hook\party\CanHostServerDetour.h" />
+    <ClInclude Include="lib\iw4\command.h" />
+    <ClInclude Include="lib\iw4\menu.h" />
+    <ClInclude Include="src\mod\game\CrateTracker.h" />
+    <ClInclude Include="src\mod\perk\PerkRule.h" />
+    <ClInclude Include="src\mod\thread\RunningThreads.h" />
+    <ClInclude Include="src\mod\thread\ThreadAction.h" />
+    <ClInclude Include="src\settings\Settings.h" />
+    <ClInclude Include="src\mod\weapon\AttachmentRule.h" />
+    <ClInclude Include="src\mod\LoadoutControl.h" />
+    <ClInclude Include="lib\iw4\iw_string.h" />
+    <ClInclude Include="lib\iw4\script.h" />
+    <ClInclude Include="src\hook\game\PlayerDieDetour.h" />
+    <ClInclude Include="src\hook\game\SayDetour.h" />
+    <ClInclude Include="src\mod\weapon\WeaponClassRule.h" />
+    <ClInclude Include="src\security\BanEntry.h" />
+    <ClInclude Include="src\security\AccessControl.h" />
+    <ClInclude Include="lib\iw4\entity.h" />
+    <ClInclude Include="lib\iw4\game.h" />
+    <ClInclude Include="lib\iw4\gclient.h" />
+    <ClInclude Include="lib\iw4\playerstate.h" />
+    <ClInclude Include="lib\iw4\dvar.h" />
+    <ClInclude Include="lib\iw4\iw4.h" />
+    <ClInclude Include="lib\iw4\network.h" />
+    <ClInclude Include="lib\iw4\party.h" />
+    <ClInclude Include="lib\iw4\server.h" />
+    <ClInclude Include="src\hook\d3d\ResetDetour.h" />
+    <ClInclude Include="src\hook\party\ClientHandshakeDetour.h" />
+    <ClInclude Include="lib\imgui\dx9\imgui_impl_dx9.h" />
+    <ClInclude Include="lib\imgui\imconfig.h" />
+    <ClInclude Include="lib\imgui\imgui.h" />
+    <ClInclude Include="lib\imgui\imgui_internal.h" />
+    <ClInclude Include="lib\imgui\stb_rect_pack.h" />
+    <ClInclude Include="lib\imgui\stb_textedit.h" />
+    <ClInclude Include="lib\imgui\stb_truetype.h" />
+    <ClInclude Include="src\hook\input\MouseEventDetour.h" />
+    <ClInclude Include="src\menu\MenuManager.h" />
+    <ClInclude Include="src\hook\user32\DispatchMessageDetour.h" />
+    <ClInclude Include="src\patch\Patch.h" />
+    <ClInclude Include="src\patch\PatchManager.h" />
+    <ClInclude Include="src\ultimate\UltimateConsole.h" />
+    <ClInclude Include="src\hook\d3d\EndSceneDetour.h" />
+    <ClInclude Include="src\hook\DetourManager.h" />
+    <ClInclude Include="lib\detours\detver.h" />
+    <ClInclude Include="lib\detours\syelog.h" />
+    <ClInclude Include="src\hook\Detour.h" />
+    <ClInclude Include="lib\detours\detours.h" />
+    <ClInclude Include="src\ultimate\Ultimate.h" />
+    <ClInclude Include="src\util\Log.h" />
+    <ClInclude Include="src\util\Message.h" />
+    <ClInclude Include="src\util\VTable.h" />
+    <ClInclude Include="lib\iw4\weapon.h" />
+    <ClInclude Include="src\util\StringUtil.h" />
+    <ClInclude Include="src\mod\weapon\WeaponRule.h" />
+    <ClInclude Include="src\vm\context\VmInstruction.h" />
+    <ClInclude Include="src\vm\thread\VmThread.h" />
+    <ClInclude Include="src\vm\value\VmStack.h" />
+    <ClInclude Include="src\vm\VirtualMachine.h" />
+    <ClInclude Include="src\vm\context\VmContext.h" />
+    <ClInclude Include="src\vm\value\VMValue.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\detours\detours.pdb" />
+    <None Include="lib\gsl\gsl.h" />
+    <None Include="lib\gsl\gsl_algorithm.h" />
+    <None Include="lib\gsl\gsl_assert.h" />
+    <None Include="lib\gsl\gsl_byte.h" />
+    <None Include="lib\gsl\gsl_util.h" />
+    <None Include="lib\gsl\multi_span.h" />
+    <None Include="lib\gsl\pointers.h" />
+    <None Include="lib\gsl\span.h" />
+    <None Include="lib\gsl\string_span.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\detours\detours.lib" />
+    <Library Include="lib\detours\syelog.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
