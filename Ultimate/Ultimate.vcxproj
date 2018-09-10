@@ -72,25 +72,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Release\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Release\Release;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
