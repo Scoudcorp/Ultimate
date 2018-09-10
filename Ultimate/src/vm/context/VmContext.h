@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "VmInstruction.h"
-#include "vm/value/VmStack.h"
+#include <vm/value/VmStack.h>
 
 namespace Vm {
 

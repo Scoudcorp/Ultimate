@@ -1,6 +1,6 @@
 #include "AttachmentRule.h"
-#include "imgui/imgui.h"
 #include "iw4/weapon.h"
+#include <imgui/imgui.h>
 
 AttachmentRule::AttachmentRule(const std::string& name)
     : m_allowed{ true }

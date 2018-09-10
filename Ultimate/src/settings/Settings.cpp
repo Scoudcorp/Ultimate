@@ -1,9 +1,9 @@
 #include "Settings.h"
-#include "imgui/imgui.h"
 #include "iw4/command.h"
 #include "iw4/iw_string.h"
 #include "iw4/menu.h"
 #include "iw4/server.h"
+#include <imgui/imgui.h>
 
 void PartySettings::drawPartySettings()
 {

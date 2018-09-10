@@ -1,8 +1,8 @@
 #pragma once
-#include "imgui/imgui.h"
 #include "iw4/weapon.h"
 #include "mod/weapon/WeaponRule.h"
 #include <array>
+#include <imgui/imgui.h>
 
 enum class WeaponClass {
     Undefined,

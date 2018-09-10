@@ -72,23 +72,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Debug;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Release\Release;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)/src;$(SolutionDir)/steam/src;$(SolutionDir)/IW4/src;$(MSBuildProjectDirectory)/lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0\headers;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Release\Release;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -101,13 +105,15 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/utf-8 /IINCREMENTAL %(AdditionalOptions)</AdditionalOptions>
       <MinimalRebuild>true</MinimalRebuild>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateMapFile>true</GenerateMapFile>
+      <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,13 +127,15 @@
       <AdditionalOptions>/utf-8 /IINCREMENTAL %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MinimalRebuild>true</MinimalRebuild>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateMapFile>true</GenerateMapFile>
+      <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -149,16 +157,18 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ControlFlowGuard>false</ControlFlowGuard>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AssemblyDebug>false</AssemblyDebug>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -180,19 +190,27 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ControlFlowGuard>false</ControlFlowGuard>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>steam.lib;$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AssemblyDebug>false</AssemblyDebug>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lib\imgui\imgui.cpp" />
+    <ClCompile Include="lib\imgui\imgui_demo.cpp" />
+    <ClCompile Include="lib\imgui\imgui_draw.cpp" />
+    <ClCompile Include="lib\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="lib\imgui\impl\imgui_impl_dx9.cpp" />
+    <ClCompile Include="lib\imgui\impl\imgui_impl_win32.cpp" />
     <ClCompile Include="lib\iw4\client.cpp" />
     <ClCompile Include="lib\iw4\dvar.cpp" />
     <ClCompile Include="lib\iw4\entity.cpp" />
@@ -206,6 +224,7 @@
     <ClCompile Include="lib\iw4\sever.cpp" />
     <ClCompile Include="lib\iw4\structure.cpp" />
     <ClCompile Include="lib\iw4\ui.cpp" />
+    <ClCompile Include="lib\steam\steam_api.cpp" />
     <ClCompile Include="src\compiler\compiler.cpp" />
     <ClCompile Include="src\disasembler\Disassembler.cpp" />
     <ClCompile Include="src\disasembler\Opcode.cpp" />
@@ -244,9 +263,6 @@
     <ClCompile Include="lib\iw4\party.cpp" />
     <ClCompile Include="src\hook\d3d\ResetDetour.cpp" />
     <ClCompile Include="src\hook\party\ClientHandshakeDetour.cpp" />
-    <ClCompile Include="lib\imgui\dx9\imgui_impl_dx9.cpp" />
-    <ClCompile Include="lib\imgui\imgui.cpp" />
-    <ClCompile Include="lib\imgui\imgui_draw.cpp" />
     <ClCompile Include="src\hook\input\MouseEventDetour.cpp" />
     <ClCompile Include="src\menu\MenuManager.cpp" />
     <ClCompile Include="src\hook\user32\DispatchMessageDetour.cpp" />
@@ -271,6 +287,14 @@
     <ClCompile Include="src\vm\value\VMValue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\imgui\imconfig.h" />
+    <ClInclude Include="lib\imgui\imgui.h" />
+    <ClInclude Include="lib\imgui\imgui_internal.h" />
+    <ClInclude Include="lib\imgui\impl\imgui_impl_dx9.h" />
+    <ClInclude Include="lib\imgui\impl\imgui_impl_win32.h" />
+    <ClInclude Include="lib\imgui\imstb_rectpack.h" />
+    <ClInclude Include="lib\imgui\imstb_textedit.h" />
+    <ClInclude Include="lib\imgui\imstb_truetype.h" />
     <ClInclude Include="lib\iw4\anim.h" />
     <ClInclude Include="lib\iw4\arg.h" />
     <ClInclude Include="lib\iw4\asset.h" />
@@ -281,6 +305,7 @@
     <ClInclude Include="lib\iw4\hudelem.h" />
     <ClInclude Include="lib\iw4\image.h" />
     <ClInclude Include="lib\iw4\iw4_memory.h" />
+    <ClInclude Include="lib\iw4\iw_steam.h" />
     <ClInclude Include="lib\iw4\leaderboard.h" />
     <ClInclude Include="lib\iw4\level.h" />
     <ClInclude Include="lib\iw4\light.h" />
@@ -302,6 +327,35 @@
     <ClInclude Include="lib\iw4\vehicle.h" />
     <ClInclude Include="lib\iw4\water.h" />
     <ClInclude Include="lib\iw4\world.h" />
+    <ClInclude Include="lib\steam\isteamapplist.h" />
+    <ClInclude Include="lib\steam\isteamapps.h" />
+    <ClInclude Include="lib\steam\isteamclient.h" />
+    <ClInclude Include="lib\steam\isteamcontroller.h" />
+    <ClInclude Include="lib\steam\isteamfriends.h" />
+    <ClInclude Include="lib\steam\isteamgameserver.h" />
+    <ClInclude Include="lib\steam\isteamgameserverstats.h" />
+    <ClInclude Include="lib\steam\isteamhtmlsurface.h" />
+    <ClInclude Include="lib\steam\isteamhttp.h" />
+    <ClInclude Include="lib\steam\isteammatchmaking.h" />
+    <ClInclude Include="lib\steam\isteammusic.h" />
+    <ClInclude Include="lib\steam\isteammusicremote.h" />
+    <ClInclude Include="lib\steam\isteamnetworking.h" />
+    <ClInclude Include="lib\steam\isteamremotestorage.h" />
+    <ClInclude Include="lib\steam\isteamscreenshots.h" />
+    <ClInclude Include="lib\steam\isteamugc.h" />
+    <ClInclude Include="lib\steam\isteamunifiedmessages.h" />
+    <ClInclude Include="lib\steam\isteamuser.h" />
+    <ClInclude Include="lib\steam\isteamuserstats.h" />
+    <ClInclude Include="lib\steam\isteamutils.h" />
+    <ClInclude Include="lib\steam\matchmakingtypes.h" />
+    <ClInclude Include="lib\steam\steamclientpublic.h" />
+    <ClInclude Include="lib\steam\steamcontrollerpublic.h" />
+    <ClInclude Include="lib\steam\steamhttpenums.h" />
+    <ClInclude Include="lib\steam\steamtypes.h" />
+    <ClInclude Include="lib\steam\steamuniverse.h" />
+    <ClInclude Include="lib\steam\steamvr.h" />
+    <ClInclude Include="lib\steam\steam_api.h" />
+    <ClInclude Include="lib\steam\steam_gameserver.h" />
     <ClInclude Include="src\compiler\compiler.h" />
     <ClInclude Include="src\disasembler\Disassembler.h" />
     <ClInclude Include="src\disasembler\Opcode.h" />
@@ -351,13 +405,6 @@
     <ClInclude Include="lib\iw4\server.h" />
     <ClInclude Include="src\hook\d3d\ResetDetour.h" />
     <ClInclude Include="src\hook\party\ClientHandshakeDetour.h" />
-    <ClInclude Include="lib\imgui\dx9\imgui_impl_dx9.h" />
-    <ClInclude Include="lib\imgui\imconfig.h" />
-    <ClInclude Include="lib\imgui\imgui.h" />
-    <ClInclude Include="lib\imgui\imgui_internal.h" />
-    <ClInclude Include="lib\imgui\stb_rect_pack.h" />
-    <ClInclude Include="lib\imgui\stb_textedit.h" />
-    <ClInclude Include="lib\imgui\stb_truetype.h" />
     <ClInclude Include="src\hook\input\MouseEventDetour.h" />
     <ClInclude Include="src\menu\MenuManager.h" />
     <ClInclude Include="src\hook\user32\DispatchMessageDetour.h" />

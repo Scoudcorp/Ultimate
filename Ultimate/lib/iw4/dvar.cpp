@@ -1,7 +1,7 @@
 #include "dvar.h"
-#include "imgui/imgui.h"
 #include "iw_string.h"
 #include <cstring>
+#include <imgui/imgui.h>
 
 int DvarLimitsEnumeration::findIndexForString(const char* input)
 {
@@ -101,7 +101,7 @@ void DvarValue::draw(DvarType_t type, dvar_s* dvar, DvarLimitsEnumeration* enume
         break;
 
     case DVAR_TYPE_INT:
-        ImGui::InputUnsignedInt("Integer", &unsignedInt);
+        //ImGui::InputUnsignedInt("Integer", &unsignedInt);
         break;
 
     case DVAR_TYPE_ENUM:

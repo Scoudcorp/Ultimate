@@ -1,7 +1,7 @@
 #include "ResetDetour.h"
-#include "imgui/dx9/imgui_impl_dx9.h"
 #include "iw4/render.h"
 #include "ultimate/Ultimate.h"
+#include <imgui/impl/imgui_impl_dx9.h>
 #include <util/VTable.h>
 
 ResetFunction ResetDetour::m_originalReset;

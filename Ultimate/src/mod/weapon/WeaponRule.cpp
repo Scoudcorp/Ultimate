@@ -1,6 +1,6 @@
 #include "WeaponRule.h"
-#include "imgui/imgui.h"
 #include "iw4/weapon.h"
+#include <imgui/imgui.h>
 
 WeaponRule::WeaponRule(const std::string& name)
     : m_allowed{ true }

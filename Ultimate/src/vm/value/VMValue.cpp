@@ -1,6 +1,6 @@
 ﻿#include "VMValue.h"
-#include "imgui/imgui.h"
 #include <algorithm>
+#include <imgui/imgui.h>
 
 Vm::Value Vm::Value::add(const Value& value) const
 {

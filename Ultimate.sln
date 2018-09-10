@@ -4,11 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ultimate", "Ultimate\Ultimate.vcxproj", "{DA13EA2D-4ECF-4A6D-820E-C3C4E560BC13}"
-	ProjectSection(ProjectDependencies) = postProject
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3} = {04F56034-CB8C-42E2-99D4-161199CEE9C3}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "steam", "steam\steam.vcxproj", "{04F56034-CB8C-42E2-99D4-161199CEE9C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,14 +21,6 @@ Global
 		{DA13EA2D-4ECF-4A6D-820E-C3C4E560BC13}.Release|x64.Build.0 = Release|x64
 		{DA13EA2D-4ECF-4A6D-820E-C3C4E560BC13}.Release|x86.ActiveCfg = Release|Win32
 		{DA13EA2D-4ECF-4A6D-820E-C3C4E560BC13}.Release|x86.Build.0 = Release|Win32
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Debug|x64.ActiveCfg = Debug|x64
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Debug|x64.Build.0 = Debug|x64
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Debug|x86.ActiveCfg = Debug|Win32
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Debug|x86.Build.0 = Debug|Win32
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Release|x64.ActiveCfg = Release|x64
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Release|x64.Build.0 = Release|x64
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Release|x86.ActiveCfg = Release|Win32
-		{04F56034-CB8C-42E2-99D4-161199CEE9C3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

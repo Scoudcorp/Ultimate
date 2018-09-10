@@ -157,9 +157,3 @@ void ActiveGame::drawActiveGame()
 
     ImGui::End();
 }
-
-void ActiveGame::unlockAll(const uint32_t playerNum)
-{
-    auto& player = getActivePlayer(playerNum);
-    player.unlockAll();
-}

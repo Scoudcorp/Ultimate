@@ -77,6 +77,9 @@ struct PartyData_s {
 };
 #pragma pack()
 
+// const inline party_data_steam_lobby_id = reinterpret_cast<uint64_t*>(0x10F9268 + 0x17E8);
+
+
 namespace Party {
 	const inline auto g_partyData = reinterpret_cast<PartyData_s*>(0x10F9268);
 

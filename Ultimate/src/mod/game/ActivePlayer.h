@@ -1,4 +1,4 @@
-﻿#pragma once
+﻿ #pragma once
 #include "hook/party/ClientHandshakeDetour.h"
 #include "iw4/gclient.h"
 #include "iw4/hudelem.h"
@@ -48,6 +48,4 @@ public:
     void updateKillStreakHud();
 
     void draw();
-
-    void unlockAll() const;
 };

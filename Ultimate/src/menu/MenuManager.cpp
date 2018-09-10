@@ -3,8 +3,9 @@
 #include "iw4/render.h"
 #include "settings/Settings.h"
 #include "ultimate/Ultimate.h"
-#include <imgui/dx9/imgui_impl_dx9.h>
 #include <imgui/imgui.h>
+#include <imgui/impl/imgui_impl_dx9.h>
+#include <imgui/impl/imgui_impl_win32.h>
 
 MenuManager::MenuManager()
     : m_open{ false }
@@ -16,17 +17,24 @@ MenuManager::MenuManager()
 
 void MenuManager::initializeImGui() const
 {
-    ImGui_ImplDX9_Init(m_window, g_device);
+    ImGui::CreateContext();
+    ImGui_ImplWin32_Init(m_window);
+    ImGui_ImplDX9_Init(g_device);
+    ImGui::StyleColorsDark();
 }
 
 void MenuManager::shutdownImGui()
 {
     ImGui_ImplDX9_Shutdown();
+    ImGui_ImplWin32_Shutdown();
+    ImGui::DestroyContext();
 }
 
 void MenuManager::onEndScene()
 {
     ImGui_ImplDX9_NewFrame();
+    ImGui_ImplWin32_NewFrame();
+    ImGui::NewFrame();
 
     if (ImGui::IsKeyPressed(VK_F2)) {
         Menu::OpenMenu(0, "popup_gamesetup");
@@ -71,9 +79,11 @@ void MenuManager::onEndScene()
         //Ultimate::m_ultimate->m_virtualMachine.draw();
     }
 
+    ImGui::EndFrame();
     ImGui::Render();
 }
 
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 bool MenuManager::onMessage(MSG* message) const
 {
     ImGui_ImplWin32_WndProcHandler(message->hwnd, message->message, message->wParam, message->lParam);

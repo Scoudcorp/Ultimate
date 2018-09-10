@@ -39,5 +39,4 @@ public:
 	void advanceCurrentRandomEquipment(uint32_t playerNum);
 
 	void drawActiveGame();
-	void unlockAll(uint32_t playerNum);
 };
