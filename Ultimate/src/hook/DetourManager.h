@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Detour.h"
+#include "d3d/D3DHooks.h"
 #include "script/ScriptManager.h"
 #include <memory>
 #include <vector>
@@ -23,6 +24,8 @@ private:
     static long applyDetour(const std::shared_ptr<Detour>&);
     static long restoreDetour(const std::shared_ptr<Detour>&);
     static long commitTransaction();
+
+    D3DHooks m_d3dHooks;
 };
 
 inline DetourManager g_detours{};

@@ -229,6 +229,7 @@
     <ClCompile Include="src\disasembler\Disassembler.cpp" />
     <ClCompile Include="src\disasembler\Opcode.cpp" />
     <ClCompile Include="src\hook\asset\FindXAssetHeaderDetour.cpp" />
+    <ClCompile Include="src\hook\d3d\D3DHooks.cpp" />
     <ClCompile Include="src\hook\game\ClientDisconnectDetour.cpp" />
     <ClCompile Include="src\hook\game\FindConfigstringIndexDetour.cpp" />
     <ClCompile Include="src\hook\game\MenuResponseDetour.cpp" />
@@ -360,9 +361,12 @@
     <ClInclude Include="src\disasembler\Disassembler.h" />
     <ClInclude Include="src\disasembler\Opcode.h" />
     <ClInclude Include="src\hook\asset\FindXAssetHeaderDetour.h" />
+    <ClInclude Include="src\hook\d3d\D3DHooks.h" />
     <ClInclude Include="src\hook\game\ClientDisconnectDetour.h" />
     <ClInclude Include="src\hook\game\FindConfigstringIndexDetour.h" />
     <ClInclude Include="src\hook\game\MenuResponseDetour.h" />
+    <ClInclude Include="src\hook\Hook.h" />
+    <ClInclude Include="src\hook\VirtualHook.h" />
     <ClInclude Include="src\hook\network\NetchanProcessDetour.h" />
     <ClInclude Include="src\hook\script\RunFrameDetour.h" />
     <ClInclude Include="src\hook\script\NotifyDetour.h" />

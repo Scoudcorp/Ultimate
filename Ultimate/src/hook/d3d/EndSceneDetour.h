@@ -1,4 +1,5 @@
 #pragma once
+#include "hook/VirtualHook.h"
 #include <d3d9.h>
 #include <hook/Detour.h>
 

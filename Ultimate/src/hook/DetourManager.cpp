@@ -19,8 +19,8 @@
 
 DetourManager::DetourManager()
 {
-    registerDetour(std::make_shared<EndSceneDetour>());
-    registerDetour(std::make_shared<ResetDetour>());
+//    registerDetour(std::make_shared<EndSceneDetour>());
+//    registerDetour(std::make_shared<ResetDetour>());
     registerDetour(std::make_shared<DispatchMessageDetour>());
     registerDetour(std::make_shared<MouseEventDetour>());
     registerDetour(std::make_shared<ClientHandshakeDetour>());
@@ -51,6 +51,8 @@ DetourManager::DetourManager()
 
 void DetourManager::hook()
 {
+    m_d3dHooks.hook();
+
     beginTransaction();
 
     std::printf("Applying %Iu detours...\n", m_detours.size());
@@ -67,6 +69,8 @@ void DetourManager::hook()
 
 void DetourManager::unhook()
 {
+    m_d3dHooks.unhook();
+
     beginTransaction();
 
     std::printf("Restoring %Iu detours...\n", m_detours.size());

@@ -4,8 +4,6 @@
 #include <headers/Virtuals/VFuncSwapHook.hpp>
 #include <ultimate/Ultimate.h>
 
-#pragma comment(lib, "PolyHook_2.lib")
-
 
 EndSceneFunction EndSceneDetour::m_originalEndScene = nullptr;
 
