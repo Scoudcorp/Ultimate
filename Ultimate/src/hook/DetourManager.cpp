@@ -1,7 +1,6 @@
 #include "DetourManager.h"
 #include "asset/FindXAssetHeaderDetour.h"
 #include "d3d/EndSceneDetour.h"
-#include "d3d/ResetDetour.h"
 #include "detours/detours.h"
 #include "game/ClientDisconnectDetour.h"
 #include "game/MenuResponseDetour.h"
@@ -14,7 +13,6 @@
 #include "script/RegisterMethodDetour.h"
 #include "script/RunFrameDetour.h"
 #include "script/Scripts.h"
-#include "server/GameSendServerCommandDetour.h"
 #include "user32/DispatchMessageDetour.h"
 
 DetourManager::DetourManager()

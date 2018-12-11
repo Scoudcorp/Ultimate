@@ -17,6 +17,7 @@ MenuManager::MenuManager()
 
 void MenuManager::initializeImGui() const
 {
+    IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGui_ImplWin32_Init(m_window);
     ImGui_ImplDX9_Init(g_device);
@@ -32,8 +33,8 @@ void MenuManager::shutdownImGui()
 
 void MenuManager::onEndScene()
 {
-    ImGui_ImplDX9_NewFrame();
     ImGui_ImplWin32_NewFrame();
+    ImGui_ImplDX9_NewFrame();
     ImGui::NewFrame();
 
     if (ImGui::IsKeyPressed(VK_F2)) {
@@ -81,14 +82,13 @@ void MenuManager::onEndScene()
 
     ImGui::EndFrame();
     ImGui::Render();
+    ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
 }
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 bool MenuManager::onMessage(MSG* message) const
 {
-    ImGui_ImplWin32_WndProcHandler(message->hwnd, message->message, message->wParam, message->lParam);
-
-    return !m_open;
+    return ImGui_ImplWin32_WndProcHandler(message->hwnd, message->message, message->wParam, message->lParam);
 }
 
 bool MenuManager::isMenuOpen() const

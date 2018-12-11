@@ -29,9 +29,11 @@ LRESULT DispatchMessageDetour::hookDispatchMessage(MSG* message)
 {
     const auto shouldDispatch = Ultimate::m_ultimate->onMessage(message);
 
-    if (shouldDispatch) {
-        return m_originalDispatchMessage(message);
-    }
+    // if (shouldDispatch) {
+    //     return m_originalDispatchMessage(message);
+    // }
 
-    return false;
+    return m_originalDispatchMessage(message);
+
+    // return false;
 }

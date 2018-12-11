@@ -90,9 +90,13 @@ static bool ImGui_ImplWin32_UpdateMouseCursor()
         return false;
 
     ImGuiMouseCursor imgui_cursor = ImGui::GetMouseCursor();
-    if (imgui_cursor == ImGuiMouseCursor_None || io.MouseDrawCursor)
+    if (imgui_cursor == ImGuiMouseCursor_None)
     {
         // Hide OS mouse cursor if imgui is drawing it or if it wants no cursor
+        ::SetCursor(NULL);
+    }
+    else if (io.MouseDrawCursor)
+    {
         ::SetCursor(NULL);
     }
     else
@@ -130,9 +134,18 @@ static void ImGui_ImplWin32_UpdateMousePos()
     // Set mouse position
     io.MousePos = ImVec2(-FLT_MAX, -FLT_MAX);
     POINT pos;
-    if (::GetActiveWindow() == g_hWnd && ::GetCursorPos(&pos))
-        if (::ScreenToClient(g_hWnd, &pos))
+
+    auto window = ::GetActiveWindow();
+    auto getPosResult = ::GetCursorPos(&pos);
+
+    if (getPosResult)
+    {
+        auto screenToClientResult = ::ScreenToClient(g_hWnd, &pos);
+        if (screenToClientResult)
+        {
             io.MousePos = ImVec2((float)pos.x, (float)pos.y);
+        }
+    }
 }
 
 void    ImGui_ImplWin32_NewFrame()

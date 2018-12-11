@@ -8,7 +8,6 @@
 #include "mod/thread/RunningThreads.h"
 #include "security/AccessControl.h"
 #include "vm/VirtualMachine.h"
-#include <atomic>
 #include <memory>
 #include <menu/MenuManager.h>
 #include <patch/PatchManager.h>
