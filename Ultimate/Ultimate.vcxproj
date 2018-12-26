@@ -9,14 +9,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -39,19 +31,6 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -63,36 +42,18 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
-    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)PolyHook_2_0\build32\Debug\Debug;$(LibraryPath)</LibraryPath>
-    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath);$(SolutionDir)Ultimate\lib\polyhook\Debug</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Release\Release;$(LibraryPath)</LibraryPath>
-    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)PolyHook_2_0;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(SolutionDir)PolyHook_2_0\build32\Release\Release;$(LibraryPath)</LibraryPath>
-    <SourcePath>$(SolutionDir)PolyHook_2_0\sources;$(SolutionDir)imgui;$(SourcePath)</SourcePath>
+    <IncludePath>$(SolutionDir)Ultimate\src;$(SolutionDir)Ultimate\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Release;$(MSBuildProjectDirectory)/lib;$(LibraryPath);$(SolutionDir)Ultimate\lib;$(SolutionDir)Ultimate\lib\polyhook\Release</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -104,36 +65,14 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/utf-8 /IINCREMENTAL %(AdditionalOptions)</AdditionalOptions>
-      <MinimalRebuild>true</MinimalRebuild>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateMapFile>true</GenerateMapFile>
-      <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/utf-8 /IINCREMENTAL %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <MinimalRebuild>true</MinimalRebuild>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Ultimate\lib\polyhook\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SolutionDir)ultimate/lib/polyhook/Debug/PolyHook_2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateMapFile>true</GenerateMapFile>
       <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
     </Link>
@@ -145,7 +84,7 @@
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>false</SDLCheck>
+      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
@@ -158,49 +97,17 @@
       <ControlFlowGuard>false</ControlFlowGuard>
       <DebugInformationFormat>None</DebugInformationFormat>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(SolutionDir)ultimate/lib/polyhook/Release/PolyHook_2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Ultimate\lib\polyhook\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AssemblyDebug>false</AssemblyDebug>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;ULTIMATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <ExceptionHandling>SyncCThrow</ExceptionHandling>
-      <StringPooling>true</StringPooling>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <ControlFlowGuard>false</ControlFlowGuard>
-      <DebugInformationFormat>None</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)/ultimate/lib/detours/detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AssemblyDebug>false</AssemblyDebug>
-      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <SupportUnloadOfDelayLoadedDLL>true</SupportUnloadOfDelayLoadedDLL>
     </Link>
   </ItemDefinitionGroup>
@@ -288,6 +195,20 @@
     <ClCompile Include="src\vm\value\VMValue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\capstone\arm.h" />
+    <ClInclude Include="lib\capstone\arm64.h" />
+    <ClInclude Include="lib\capstone\capstone.h" />
+    <ClInclude Include="lib\capstone\evm.h" />
+    <ClInclude Include="lib\capstone\m680x.h" />
+    <ClInclude Include="lib\capstone\m68k.h" />
+    <ClInclude Include="lib\capstone\mips.h" />
+    <ClInclude Include="lib\capstone\platform.h" />
+    <ClInclude Include="lib\capstone\ppc.h" />
+    <ClInclude Include="lib\capstone\sparc.h" />
+    <ClInclude Include="lib\capstone\systemz.h" />
+    <ClInclude Include="lib\capstone\tms320c64x.h" />
+    <ClInclude Include="lib\capstone\x86.h" />
+    <ClInclude Include="lib\capstone\xcore.h" />
     <ClInclude Include="lib\imgui\imconfig.h" />
     <ClInclude Include="lib\imgui\imgui.h" />
     <ClInclude Include="lib\imgui\imgui_internal.h" />
@@ -328,6 +249,29 @@
     <ClInclude Include="lib\iw4\vehicle.h" />
     <ClInclude Include="lib\iw4\water.h" />
     <ClInclude Include="lib\iw4\world.h" />
+    <ClInclude Include="lib\polyhook\ADisassembler.hpp" />
+    <ClInclude Include="lib\polyhook\CapstoneDisassembler.hpp" />
+    <ClInclude Include="lib\polyhook\Detour\ADetour.hpp" />
+    <ClInclude Include="lib\polyhook\Detour\ILCallback.hpp" />
+    <ClInclude Include="lib\polyhook\Detour\x64Detour.hpp" />
+    <ClInclude Include="lib\polyhook\Detour\x86Detour.hpp" />
+    <ClInclude Include="lib\polyhook\Enums.hpp" />
+    <ClInclude Include="lib\polyhook\ErrorLog.hpp" />
+    <ClInclude Include="lib\polyhook\Exceptions\AVehHook.hpp" />
+    <ClInclude Include="lib\polyhook\Exceptions\BreakPointHook.hpp" />
+    <ClInclude Include="lib\polyhook\Exceptions\HWBreakPointHook.hpp" />
+    <ClInclude Include="lib\polyhook\IHook.hpp" />
+    <ClInclude Include="lib\polyhook\Instruction.hpp" />
+    <ClInclude Include="lib\polyhook\MemProtector.hpp" />
+    <ClInclude Include="lib\polyhook\Misc.hpp" />
+    <ClInclude Include="lib\polyhook\PageAllocator.hpp" />
+    <ClInclude Include="lib\polyhook\PE\EatHook.hpp" />
+    <ClInclude Include="lib\polyhook\PE\IatHook.hpp" />
+    <ClInclude Include="lib\polyhook\PE\PEB.hpp" />
+    <ClInclude Include="lib\polyhook\Tests\TestEffectTracker.hpp" />
+    <ClInclude Include="lib\polyhook\UID.hpp" />
+    <ClInclude Include="lib\polyhook\Virtuals\VFuncSwapHook.hpp" />
+    <ClInclude Include="lib\polyhook\Virtuals\VTableSwapHook.hpp" />
     <ClInclude Include="lib\steam\isteamapplist.h" />
     <ClInclude Include="lib\steam\isteamapps.h" />
     <ClInclude Include="lib\steam\isteamclient.h" />
@@ -446,10 +390,14 @@
     <None Include="lib\gsl\pointers.h" />
     <None Include="lib\gsl\span.h" />
     <None Include="lib\gsl\string_span.h" />
+    <None Include="lib\polyhook\Debug\PolyHook_2.pdb" />
+    <None Include="lib\polyhook\Release\PolyHook_2.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\detours\detours.lib" />
     <Library Include="lib\detours\syelog.lib" />
+    <Library Include="lib\polyhook\Debug\PolyHook_2.lib" />
+    <Library Include="lib\polyhook\Release\PolyHook_2.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

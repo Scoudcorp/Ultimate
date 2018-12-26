@@ -1,7 +1,7 @@
 #include "EndSceneDetour.h"
 #include "iw4/render.h"
-#include <headers/CapstoneDisassembler.hpp>
-#include <headers/Virtuals/VFuncSwapHook.hpp>
+#include <polyhook/CapstoneDisassembler.hpp>
+#include <polyhook/Virtuals/VFuncSwapHook.hpp>
 #include <ultimate/Ultimate.h>
 
 

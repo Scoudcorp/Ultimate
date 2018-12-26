@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Hook.h"
-#include <headers/Virtuals/VFuncSwapHook.hpp>
+#include <polyhook/Virtuals/VFuncSwapHook.hpp>
 #include <utility>
 
 class VirtualHook : public Hook {
