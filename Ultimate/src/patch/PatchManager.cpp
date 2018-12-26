@@ -4,10 +4,12 @@
 
 PatchManager::PatchManager()
 {
-    registerPatch({ 0x6293C4u, { 0x6A, 0x01 } }); // Steam gameserver vac insecure flag
+    registerPatch({ 0x6293C4u, { 0x6A, 0x01 } }); // Steam game server vac insecure flag
 
     registerPatch({ 0x582885u, { 0x8B, 0x0C } }); // VM_Notify store script method in ecx instead of eax
     registerPatch({ 0x582892u, { 0xFF, 0xD1 } }); // VM_Notify change "call eax" to "call ecx" (see previous patch for context)
+
+	registerPatch({ 0x628A7B, { 0x90, 0x90 } }); // OnLobbyCreated fix for not being able to create lobby while vac banned.
 }
 
 void PatchManager::registerPatch(const Patch& patch)
