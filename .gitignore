@@ -13,10 +13,6 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
 x64/
 x86/
 bld/
@@ -327,6 +323,12 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Don't keep build folders
+/Debug/
+/Release/
+Ultimate/Debug/
+Ultimate/Release/
 
 # Keep detours libs
 !detours.lib
