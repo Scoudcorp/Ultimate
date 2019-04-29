@@ -2,6 +2,7 @@
 #include "iw_string.h"
 #include <cstring>
 #include <imgui/imgui.h>
+#include <iostream>
 
 int DvarLimitsEnumeration::findIndexForString(const char* input)
 {
@@ -101,7 +102,7 @@ void DvarValue::draw(DvarType_t type, dvar_s* dvar, DvarLimitsEnumeration* enume
         break;
 
     case DVAR_TYPE_INT:
-        //ImGui::InputUnsignedInt("Integer", &unsignedInt);
+        ImGui::InputInt("Integer", &integer);
         break;
 
     case DVAR_TYPE_ENUM:
@@ -146,7 +147,6 @@ void dvar_s::draw()
 
     if (ImGui::TreeNode(text)) {
         current.draw(type, this, enumeration);
-
         ImGui::TreePop();
     }
 
